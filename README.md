@@ -1,0 +1,46 @@
+# 🌐 TCP Connection Monitor (PowerShell)
+
+A lightweight, continuous PowerShell script to monitor TCP port availability and latency on a remote server. It displays real-time results in the console, with optional logging to a file.
+
+## 🚀 How to Use
+
+### Prerequisites
+
+* PowerShell 5.1 or later (included in Windows).
+
+### Execution
+
+1. Save the script as `monitor_connection.ps1`.
+2. Open a PowerShell console.
+3. Execute the script with the mandatory `-Server` and `-Port` parameters.
+
+### Examples
+
+**1. Monitor connection every 5 seconds (Console Only):**
+
+.\monitor_connection.ps1 -Server "www.google.com" -Port 80
+
+
+**2. Monitor and log results to a file every 10 seconds:**
+
+.\monitor_connection.ps1 -Server "your.api.endpoint" -Port 443 -LogFile "C:\Logs\tcp_monitor_log.txt" -IntervalSeconds 10
+
+
+**3. Stop the script:**
+
+Press `Ctrl+C` in the PowerShell console where the script is running.
+
+## ⚙️ Parameters
+
+| **Parameter** | **Type** | **Required** | **Default** | **Description** | 
+| :--- | :--- | :--- | :--- | :--- |
+| **Server** | `string` | Yes | N/A | Hostname or IP of the target server (e.g., `8.8.8.8`). | 
+| **Port** | `int` | Yes | N/A | The TCP port number (e.g., `443` for HTTPS). | 
+| **IntervalSeconds** | `int` | No | `5` | Wait time (in seconds) between connection attempts. | 
+| **LogFile** | `string` | No | `$null` | Optional file path for continuous output appending; otherwise, output is console-only. | 
+
+## 📝 Script Output Format
+
+The output includes a timestamp, status (SUCCESS/FAILED/TIMEOUT), and connection latency:
+
+2025-01-01 12:00:01 [SUCCESS] Connected to www.google.com:80 in 45 ms 2025-01-01 12:00:06 [FAILED] Connection to example.com:443 failed. Time taken: 10 ms. Error: A connection attempt failed because the connected party did not properly respond after a period of time... 2025-01-01 12:00:11 [TIMEOUT] Connection to 10.0.0.1:22 timed out after 3000 ms. Time taken: 3004 ms
