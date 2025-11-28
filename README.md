@@ -10,7 +10,7 @@ A lightweight, continuous PowerShell script to monitor TCP port availability and
 
 ### Execution
 
-1. Save the script as `monitor_connection.ps1`.
+1. Save the script as `tnc-response-time.ps1`.
 
 2. Open a PowerShell console.
 
@@ -20,12 +20,12 @@ A lightweight, continuous PowerShell script to monitor TCP port availability and
 
 **1. Monitor connection every 5 seconds (Console Only):**
 
-.\monitor_connection.ps1 -Server "www.google.com" -Port 80
+.\tnc-response-time.ps1 -Server "www.google.com" -Port 80
 
 
 **2. Monitor and log results to a file every 10 seconds:**
 
-.\monitor_connection.ps1 -Server "your.api.endpoint" -Port 443 -LogFile "C:\Logs\tcp_monitor_log.txt" -IntervalSeconds 10
+.\tnc-response-time.ps1 -Server "your.api.endpoint" -Port 443 -LogFile "C:\Logs\tcp_monitor_log.txt" -IntervalSeconds 10
 
 
 **3. Stop the script:**
